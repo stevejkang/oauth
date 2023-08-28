@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      dockerfile: Dockerfile.local
+      context: ./
+    container_name: api
+    restart: unless-stopped
+    depends_on:
+      - mongodb
+      - mysql
+    ports:
+      - '80:80'
+    volumes:
+      - ./src:/app/src
+      - ./.env:/app/.env
+      - ./.env.development:/app/.env.development
+    command:
+      - "npm"
+      - "run"
+      - "start:local:dev"
+
+  mongodb:
+    container_name: api_mongodb
+    image: mongo:4.2.1
+    ports:
+      - "27017:27017"
+    restart: on-failure
+    volumes:
+      - ./data/db:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: api
+      MONGO_INITDB_ROOT_PASSWORD: apipass
+      MONGO_INITDB_DATABASE: api
+
+  mysql:
+    container_name: api_mysql
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    restart: on-failure
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: api
+      MYSQL_USER: api
+      MYSQL_PASSWORD: apipass
+      TZ: Asia/Seoul
