@@ -1,6 +1,10 @@
 # oauth
 
 ## OAuth Flow
+> **Note**
+> This may be different from the general OAuth flow.  
+> I modified the flow a little bit to give the server more roles.
+
 ```mermaid
 sequenceDiagram
     participant Client as Client
