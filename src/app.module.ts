@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
 import { config } from './config';
+import { AppController } from './app.controller';
+import { OAuthModule } from './oauth/OAuthModule';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { config } from './config';
       charset: 'utf8mb4',
       logging: [],
     }),
+    OAuthModule,
   ],
   controllers: [AppController],
   providers: [],

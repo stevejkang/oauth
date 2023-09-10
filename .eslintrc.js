@@ -5,7 +5,7 @@ module.exports = {
     project: './tsconfig.json',
     tsconfigRootDir: __dirname,
     ecmaVersion: 'latest',
-    sourceType: "module",
+    sourceType: 'module',
   },
   plugins: ['@typescript-eslint/eslint-plugin'],
   extends: [
@@ -18,8 +18,8 @@ module.exports = {
   },
   ignorePatterns: [
     '.eslintrc.js',
-    "src/**/*.spec.ts",
-    "tests/**/*.ts",
+    'src/**/*.spec.ts',
+    'tests/**/*.ts',
   ],
   rules: {
     'init-declarations': 'off',
@@ -34,8 +34,9 @@ module.exports = {
     'brace-style': 'off',
     '@typescript-eslint/dot-notation': 'error',
     '@typescript-eslint/explicit-function-return-type': 'warn',
-    "@typescript-eslint/init-declarations": "error",
-    "@typescript-eslint/no-empty-interface": "warn",
+    '@typescript-eslint/init-declarations': 'error',
+    '@typescript-eslint/no-empty-interface': 'warn',
+    '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/member-delimiter-style': [
       'error',
       {

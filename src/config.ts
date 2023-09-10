@@ -34,4 +34,21 @@ export const config = {
     DATABASE: required<string>('MYSQL_DATABASE'),
   },
   JWT_SECRET: required<string>('JWT_SECRET'),
+  OAUTH: {
+    KAKAO: {
+      CLIENT_ID: required<string>('OAUTH2_KAKAO_CLIENT_ID'),
+      CLIENT_SECRET: required<string>('OAUTH2_KAKAO_CLIENT_SECRET'),
+      REDIRECT_URI: required<string>('OAUTH2_KAKAO_REDIRECT_URI'),
+    },
+    NAVER: {
+      CLIENT_ID: required<string>('OAUTH2_NAVER_CLIENT_ID'),
+      CLIENT_SECRET: required<string>('OAUTH2_NAVER_CLIENT_SECRET'),
+      REDIRECT_URI: required<string>('OAUTH2_NAVER_REDIRECT_URI'),
+    },
+    GOOGLE: {
+      CLIENT_ID: required<string>('OAUTH2_GOOGLE_CLIENT_ID'),
+      CLIENT_SECRET: required<string>('OAUTH2_GOOGLE_CLIENT_SECRET'),
+      REDIRECT_URI: required<string>('OAUTH2_GOOGLE_REDIRECT_URI'),
+    },
+  },
 };

@@ -1,13 +1,15 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { DocumentBuilder, SwaggerCustomOptions, SwaggerModule } from '@nestjs/swagger';
 import { INestApplication } from '@nestjs/common';
+import { DocumentBuilder, SwaggerCustomOptions, SwaggerModule } from '@nestjs/swagger';
+import { AppModule } from './app.module';
+import { HttpLoggingInterceptor } from './shared/interceptors/HttpLoggingInterceptor';
 
 function setupSwaggerDocument(app: INestApplication): void {
   const config = new DocumentBuilder()
     .setTitle('API Documentation')
     .setVersion('0.1')
     .addTag('Misc', 'Miscellaneous APIs')
+    .addTag('OAuth', 'OAuth APIs')
     .build();
 
   const options: SwaggerCustomOptions = {
@@ -24,10 +26,10 @@ function setupSwaggerDocument(app: INestApplication): void {
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const port = 80;
+  app.useGlobalInterceptors(new HttpLoggingInterceptor());
 
   setupSwaggerDocument(app);
 
-  await app.listen(port);
+  await app.listen(80);
 }
 bootstrap();
