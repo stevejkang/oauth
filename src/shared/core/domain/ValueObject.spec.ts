@@ -27,4 +27,11 @@ describe('ValueObject with AbstractClass', () => {
     const tclass2 = new AbstractClass({ foo: 'bar', bar: { foo: true, bar: true } });
     expect(tclass.equals(tclass2)).toBeTruthy();
   });
+
+  it('should not be equal when one is undefined', () => {
+    const tclass = undefined;
+    const tclass2 = new AbstractClass({ foo: 'bar' });
+
+    expect(tclass2.equals(tclass)).toBeFalsy();
+  });
 });
