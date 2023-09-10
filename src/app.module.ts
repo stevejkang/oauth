@@ -23,7 +23,7 @@ import { OAuthModule } from './oauth/OAuthModule';
         __dirname + '/**/entities/*View{.ts,.js}',
       ],
       charset: 'utf8mb4',
-      logging: [],
+      logging: true,
     }),
     OAuthModule,
   ],
