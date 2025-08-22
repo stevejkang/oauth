@@ -26,7 +26,7 @@
     "@nestjs/config": "^3.0.0",
     "@nestjs/core": "^10.4.17",
     "@nestjs/passport": "^10.0.1",
-    "@nestjs/platform-express": "^10.4.17",
+    "@nestjs/platform-express": "^10.4.20",
     "@nestjs/swagger": "^7.4.2",
     "@nestjs/typeorm": "^10.0.0",
     "axios": "^1.8.2",
